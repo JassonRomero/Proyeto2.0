@@ -23,10 +23,10 @@ public class UserImplement {
     private String path = "users.txt";
     private File file = new File(path);
 
-    public void UserInsert(User user) {
+    public /*boolean*/ void UserInsert(User user) {
         String ruta = "users.txt";
         File file = new File(ruta);
-
+        boolean usearSearch = true;
         FileWriter flWriter = null;
         try {
 
@@ -41,13 +41,14 @@ public class UserImplement {
             BufferedWriter brWriter = new BufferedWriter(flWriter);
             boolean existe = searchUser(user.getUserName());
             if (existe == false) {
-                brWriter.write(user.getUserName() + ";"
-                        /*+ userName.getPassword()*/);
+                brWriter.write(user.getUserName() + ";" + user.getPassword());
 
                 brWriter.newLine();
+                // usearSearch= true;
 
             } else {
-                JOptionPane.showMessageDialog(null, "The user already exists");
+                JOptionPane.showMessageDialog(null, "the user already exists");
+                // usearSearch=false;
             }
             brWriter.close();
 
@@ -64,6 +65,7 @@ public class UserImplement {
             }
 
         }
+        // return usearSearch;
     }
 
     public User[] getUsers() {
@@ -96,6 +98,32 @@ public class UserImplement {
         return existe;
     }
 
+    public boolean validatePassword( String password) {
+        boolean existPassword = false;
+
+        String ruta = "users.txt";
+        File file = new File(ruta);
+
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            String cadena = "";
+            FileReader fileR = new FileReader(file);
+            BufferedReader buffReader = new BufferedReader(fileR);
+            while ((cadena = buffReader.readLine()) != null) {
+                if (cadena.indexOf(";") != -1) {
+                    if (cadena.split(";")[1].equalsIgnoreCase(password)) {
+                        System.out.println("Correct");
+                        existPassword = true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+        }
+        return existPassword;
+     
+     }
     public String getFileName() {
         return fileName;
     }

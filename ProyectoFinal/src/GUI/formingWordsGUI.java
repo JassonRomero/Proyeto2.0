@@ -63,6 +63,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
         panelOfformingWords = new javax.swing.JPanel();
         answerButton = new javax.swing.JButton();
         solutionsButton = new javax.swing.JButton();
@@ -82,6 +83,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         showScore = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,7 +204,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
 
         showScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -515,6 +518,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
         }
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
+        System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
 
     }//GEN-LAST:event_jTextField4KeyTyped
 
@@ -707,6 +711,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private javax.swing.JButton helpButton;
     private javax.swing.JTextField introduceWord;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

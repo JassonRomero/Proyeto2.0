@@ -20,7 +20,7 @@ public class Proyectofinal {
         // TODO code application logic here
         //proyecto programacion
         mainGUI main=new mainGUI();
-        main.setTitle("Proyecto de Programacion");
+        main.setTitle("Programming Project");
         main.setVisible(true);
         main.setLocationRelativeTo(null);
     }

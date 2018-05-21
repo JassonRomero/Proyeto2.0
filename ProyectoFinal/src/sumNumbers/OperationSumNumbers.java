@@ -15,58 +15,82 @@ public class OperationSumNumbers implements Operation{
     int sumNumber=0;
     @Override
     public int[] numRandom() {
-        int numberRandom1 = (int)(Math.random()*9)+1;
-        int numberRandom2 = (int)(Math.random()*9)+1;
-        sumNumber=numberRandom1+numberRandom2;
+        /*Numbers are randomly generated between 1 and 9,
+            both numbers are added together and both numbers and their sum are returned in a arrays*/
+        try {
+            int numberRandom1 = (int)(Math.random()*9)+1;
+            int numberRandom2 = (int)(Math.random()*9)+1;
+            sumNumber=numberRandom1+numberRandom2;
+            arraysNumberRandom[0]=numberRandom1;
+            arraysNumberRandom[1]=numberRandom2;
+            arraysNumberRandom[2]=sumNumber;
         
-        arraysNumberRandom[0]=numberRandom1;
-        arraysNumberRandom[1]=numberRandom2;
-        arraysNumberRandom[2]=sumNumber;
-        
-        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
         return arraysNumberRandom;
     }
 
     @Override
     public void helpMe() {
-        JOptionPane.showMessageDialog(null,"Para jugar a Sumando Numeros debe realizar cada operacion que se le presenta en pantalla"
+        /*Generates some help options for the user*/
+        try {
+            JOptionPane.showMessageDialog(null,"1. To play Adding Numbers you must perform each operation that is presented on the screen"
                                             +"\n"
-                                            +"Se le presentaran sumas de numeros aleatoriamente entre 1 y 9"
+                                            +"2. The sums of numbers will be between 1 and 9"
                                             +"\n"
-                                            +"Cuando complete un total de 15 sumas de forma correcta el juego terminara "
-                                            + "o si desea terminar presione el boton terminar juego");
+                                            +"3. If you are not sure of the result of any sum and want other numbers press the button change numbers"
+                                            +"\n"
+                                            +"4. When you complete a total of 15 sums correctly the game will end"
+                                            +" or if you want to finish press the finish button game");   
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
+        
     }
 
     @Override
     public boolean addingNumbers(int[]arraysNumbers,int numberUser,int attempts) {
-
-           if(attempts%2==0)
+        int result=0;
+        /*compares the number entered by the user with the number that is hidden to validate if they are equal*/
+        try {
+            
+            if(attempts%2==0)
            {
                 if(arraysNumbers[1]==numberUser)
                 {
-                    return true;
+                    result=1;
                 }
                 else
                 {
-                    return false;
+                    result=0;
                 }
            }
            else
            {
-
-
                 if(arraysNumbers[0]==numberUser)
                 {
-                    return true;
+                    result=1;
                 }
                 else
                 {
-                    return false;
+                    result=0;
                 } 
-
-            }    
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
+        if(result==1)
+        {
+            return true;
+        }
+        else    
+        {
+           return false;
+        }
     }
     
+    /*attempts, correct attempts and failed attempts are initialized*/
     @Override
     public int attempts() {
        int attempts=0;

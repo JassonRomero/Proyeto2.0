@@ -63,6 +63,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
         panelOfformingWords = new javax.swing.JPanel();
         answerButton = new javax.swing.JButton();
         solutionsButton = new javax.swing.JButton();
@@ -82,6 +83,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         showScore = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,7 +204,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
 
         showScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -370,6 +373,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String AnswerUser="";
+        
         AnswerUser=jTextField1.getText()+jTextField2.getText()+jTextField3.getText()+jTextField4.getText()+
                 jTextField5.getText()+jTextField6.getText()+jTextField7.getText();
         if(AnswerUser.equalsIgnoreCase(originalWord))
@@ -384,7 +388,9 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
         String textOne=jTextField1.getText();
-        
+        if(jTextField1.getText().length()==1){
+            evt.consume();
+        }
         char firtChar=originalWord.charAt(0);
         if(textOne.equalsIgnoreCase(String.valueOf(firtChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -406,12 +412,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
             
             
         }
+        System.out.println("Palabra usuario"+textOne+" palabra sistema: "+answerUserGlobal);
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         // TODO add your handling code here:
         String textTwo=jTextField2.getText();
-      
+        if(jTextField2.getText().length()==1){
+            evt.consume();
+        }
         char WordChar=originalWord.charAt(1);
         if(textTwo.equalsIgnoreCase(String.valueOf(WordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -432,12 +441,16 @@ public class formingWordsGUI extends javax.swing.JFrame {
             jTextField1.setEditable(true);
             
         }
+        System.out.println("Palabra usuario"+textTwo+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         // TODO add your handling code here:
         String textThree=jTextField3.getText();
-      
+        if(jTextField3.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(2);
         if(textThree.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -458,12 +471,16 @@ public class formingWordsGUI extends javax.swing.JFrame {
             jTextField1.setEditable(true);
             
         }
+        System.out.println("Palabra usuario"+textThree+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         // TODO add your handling code here:
         String textFour=jTextField4.getText();
-      
+        if(jTextField4.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(3);
         if(textFour.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -481,7 +498,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             jTextField6.setText("");
             jTextField7.setText("");
             jTextField8.setText("");
-            jTextField1.setEditable(true);
+            jTextField1.setEditable(false);
+            jTextField1.setEnabled(false);
             jTextField2.setEditable(false);
             jTextField4.setEditable(false);
             jTextField5.setEditable(false);
@@ -496,14 +514,20 @@ public class formingWordsGUI extends javax.swing.JFrame {
             showDisform=op.disformArrayWord(op.words2(originalWord));
             introduceWord.setText("");
             showDisformingLabel.setText(showDisform);
-            
+            answerUserGlobal="";
         }
+        System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
+        System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
+        System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
         String textFive=jTextField5.getText();
-      
+        if(jTextField5.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(4);
         if(textFive.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -536,14 +560,18 @@ public class formingWordsGUI extends javax.swing.JFrame {
             showDisform=op.disformArrayWord(op.words2(originalWord));
             introduceWord.setText("");
             showDisformingLabel.setText(showDisform);
-           
+           answerUserGlobal="";
         }
+       System.out.println("Palabra usuario"+textFive+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         // TODO add your handling code here:
         String textSix=jTextField6.getText();
-      
+        if(jTextField6.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(5);
         if(textSix.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -576,20 +604,25 @@ public class formingWordsGUI extends javax.swing.JFrame {
             showDisform=op.disformArrayWord(op.words2(originalWord));
             introduceWord.setText("");
             showDisformingLabel.setText(showDisform);
-            
+            answerUserGlobal="";
         }
+      System.out.println("Palabra usuario"+textSix+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         // TODO add your handling code here:
         String textSeven=jTextField7.getText();
-      
+        if(jTextField7.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(6);
         if(textSeven.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
             answerUserGlobal+=textSeven;
             jTextField7.setEditable(false);
             jTextField8.setEditable(true);
+            
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -616,14 +649,18 @@ public class formingWordsGUI extends javax.swing.JFrame {
             showDisform=op.disformArrayWord(op.words2(originalWord));
             introduceWord.setText("");
             showDisformingLabel.setText(showDisform);
-            
+            answerUserGlobal="";
         }
+        System.out.println("Palabra usuario"+textSeven+" palabra sistema: "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
         // TODO add your handling code here:
         String textEight=jTextField8.getText();
-      
+        if(jTextField8.getText().length()==1){
+            evt.consume();
+        }
         char wordChar=originalWord.charAt(7);
         if(textEight.equalsIgnoreCase(String.valueOf(wordChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
@@ -656,8 +693,10 @@ public class formingWordsGUI extends javax.swing.JFrame {
             showDisform=op.disformArrayWord(op.words2(originalWord));
             introduceWord.setText("");
             showDisformingLabel.setText(showDisform);
-            
+            answerUserGlobal="";
         }
+        System.out.println("Palabra usuario:  "+textEight+"  palabra sistema:  "+answerUserGlobal);
+
     }//GEN-LAST:event_jTextField8KeyTyped
 
     /**
@@ -672,6 +711,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private javax.swing.JButton helpButton;
     private javax.swing.JTextField introduceWord;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

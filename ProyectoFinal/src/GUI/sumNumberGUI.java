@@ -17,6 +17,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
      * Creates new form sumNumberGUI
      */
     OperationSumNumbers action=new OperationSumNumbers();
+    //initialize the variables
     int numAttempts=action.attempts();
     int correctAttempts=action.correctAttempts();
     int failledAttempts=action.failedatttempts();
@@ -42,24 +43,24 @@ public class sumNumberGUI extends javax.swing.JFrame {
             {
                failledAttempts++;
             }
-            jTextField1_numberUser.setText("");
+            jTextField1_numberUser.setText("");//textfield numberUser set the text with nothing
             arraysNumbers=action.numRandom();
-            jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));
-            jLabel3_attempts.setText(String.valueOf(numAttempts));
-            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
-            if(numAttempts%2==0){
-                jLabel1_numRandom1.setText("¿?");
-                jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
+            jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));//the label of correctAttemps set the text of the variable correctAtempts but this variable have to convert in String
+            jLabel3_attempts.setText(String.valueOf(numAttempts));//the label of atempts set the text of the vairable numAttempts
+            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));//failedAttempts set the text of the variable failledAttemps
+            if(numAttempts%2==0){//if numAttempts mod 2 equal 0 it mean that numAttempts is pair
+                jLabel1_numRandom1.setText("¿?");//labe1 of numRandom set the text "¿?"
+                jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));//
             }else{
                 jLabel2_numRandom2.setText("¿?");
                 jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
             }
             jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
-            if(correctAttempts==15)
+            if(correctAttempts==15)//until correctAttempts=15 the game is finished
             {
-               setVisible(false);
-               this.dispose();
-               mainGUI main=new mainGUI();
+               setVisible(false);//this jframe is hidden
+               this.dispose();//close
+               mainGUI main=new mainGUI();//new mainGUI
                main.setTitle("Programming Project");
                main.setVisible(true);
                main.setLocationRelativeTo(null);
@@ -298,9 +299,9 @@ public class sumNumberGUI extends javax.swing.JFrame {
 
     private void againButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_againButtonActionPerformed
         try {
-            arraysNumbers=action.numRandom();
-            numAttempts++;
-            if(numAttempts%2==0){
+            arraysNumbers=action.numRandom();//call random Number
+            numAttempts++;//attempts +1
+            if(numAttempts%2==0){//if residue is cero
             jLabel1_numRandom1.setText("¿?");
             jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
             }else{
@@ -308,9 +309,9 @@ public class sumNumberGUI extends javax.swing.JFrame {
             jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
             }
             jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
-            failledAttempts++;
+            failledAttempts++;//failedAttempts sum 1
             jLabel3_attempts.setText(String.valueOf(numAttempts));
-            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));  
+            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts)); //set the text of label failedAttempts 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"An error has occured!");
         }
@@ -319,7 +320,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         try {
-            action.helpMe();
+            action.helpMe();//call the method helpme
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"An error has occured!");
         }
@@ -340,10 +341,10 @@ public class sumNumberGUI extends javax.swing.JFrame {
                                                                 +"\n"
                                                                 +"Right attempts: "+correctAttempts+" "
                                                                 +"\n"
-                                                                +"Failed attempts: "+failledAttempts));
+                                                                +"Failed attempts: "+failledAttempts));//show all the attempts
             setVisible(false);
-            this.dispose();
-            mainGUI main=new mainGUI();
+            this.dispose();//close 
+            mainGUI main=new mainGUI();//new instance for a new game
             main.setTitle("Programming Project");
             main.setVisible(true);
             main.setLocationRelativeTo(null); 

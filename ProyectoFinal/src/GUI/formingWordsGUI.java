@@ -19,12 +19,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
     
     public String originalWord=op.wordsOriginal(op.words());
     public String showDisform="";
-    
     public int Score=100;
     public formingWordsGUI() {
         initComponents();
         showDisform=op.disformArrayWord(op.words2(originalWord));
         showDisformingLabel.setText(showDisform);
+        showScore.setText(String.valueOf(Score));
     }
     private void answerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
@@ -44,6 +44,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane,"No son iguales");
             JOptionPane.showMessageDialog(rootPane,comparateUserAnswer+" "+originalWord);
+            Score=Score-5;
+            showScore.setText(String.valueOf(Score));
         }
        
         
@@ -67,7 +69,6 @@ public class formingWordsGUI extends javax.swing.JFrame {
         introduceWord = new javax.swing.JTextField();
         formingTitleLabel = new javax.swing.JLabel();
         scoreTitleLabel = new javax.swing.JLabel();
-        scoreLabel = new javax.swing.JLabel();
         showDisformingLabel = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -77,6 +78,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        showScore = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +99,11 @@ public class formingWordsGUI extends javax.swing.JFrame {
         solutionsButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         solutionsButton.setText("Solucionar");
         solutionsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        solutionsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solutionsButtonActionPerformed(evt);
+            }
+        });
 
         finishGame.setBackground(new java.awt.Color(102, 102, 102));
         finishGame.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -126,12 +133,10 @@ public class formingWordsGUI extends javax.swing.JFrame {
         scoreTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         scoreTitleLabel.setText(" Puntaje:");
 
-        scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
-        scoreLabel.setText(String.valueOf(Score));
-        scoreLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         showDisformingLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         showDisformingLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        showScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout panelOfformingWordsLayout = new javax.swing.GroupLayout(panelOfformingWords);
         panelOfformingWords.setLayout(panelOfformingWordsLayout);
@@ -143,43 +148,41 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfformingWordsLayout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                        .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(172, 172, 172))
-                    .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelOfformingWordsLayout.createSequentialGroup()
+                        .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(showDisformingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(introduceWord, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(showDisformingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(introduceWord, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(finishGame)
-                                            .addComponent(solutionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(answerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                    .addComponent(finishGame)
+                                    .addComponent(solutionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelOfformingWordsLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(answerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelOfformingWordsLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
             .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
@@ -189,6 +192,14 @@ public class formingWordsGUI extends javax.swing.JFrame {
         panelOfformingWordsLayout.setVerticalGroup(
             panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfformingWordsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(finishGame, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13))
+            .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(formingTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,15 +224,9 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(finishGame, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
+                .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,6 +275,20 @@ public class formingWordsGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_finishGameActionPerformed
 
+    private void solutionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solutionsButtonActionPerformed
+        // TODO add your handling code here:
+            showDisformingLabel.setText("");
+            showDisform=op.disformArrayWord(op.words());
+            originalWord=op.wordsOriginal(op.words());
+            showDisform=op.disformArrayWord(op.words2(originalWord));
+            introduceWord.setText("");
+            showDisformingLabel.setText(showDisform);
+            JOptionPane.showMessageDialog(rootPane,"La palabra es: "+originalWord);
+            Score=Score-10;
+            showScore.setText(String.valueOf(Score));
+        
+    }//GEN-LAST:event_solutionsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,9 +309,9 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JPanel panelOfformingWords;
-    public javax.swing.JLabel scoreLabel;
     private javax.swing.JLabel scoreTitleLabel;
     public javax.swing.JLabel showDisformingLabel;
+    private javax.swing.JLabel showScore;
     private javax.swing.JButton solutionsButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -514,6 +514,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal="";
         }
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
+        System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
 
     }//GEN-LAST:event_jTextField4KeyTyped
 

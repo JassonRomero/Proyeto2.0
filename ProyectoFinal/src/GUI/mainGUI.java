@@ -45,10 +45,10 @@ public class mainGUI extends javax.swing.JFrame {
         userPanel.setBackground(new java.awt.Color(204, 204, 204));
 
         nameLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
-        nameLabel.setText("Nombre:");
+        nameLabel.setText("Name");
 
         userLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
-        userLabel.setText("Usuario:");
+        userLabel.setText("User");
 
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +58,7 @@ public class mainGUI extends javax.swing.JFrame {
 
         enterGameButton.setBackground(new java.awt.Color(255, 255, 255));
         enterGameButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        enterGameButton.setText("Ingresar");
+        enterGameButton.setText("Enter");
         enterGameButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         enterGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +105,7 @@ public class mainGUI extends javax.swing.JFrame {
 
         sumNumbers.setBackground(new java.awt.Color(255, 255, 255));
         sumNumbers.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        sumNumbers.setText("Sumando Numeros");
+        sumNumbers.setText("Adding Numbers");
         sumNumbers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         sumNumbers.setEnabled(false);
         sumNumbers.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class mainGUI extends javax.swing.JFrame {
 
         formingWords.setBackground(new java.awt.Color(255, 255, 255));
         formingWords.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        formingWords.setText("Formando Palabras");
+        formingWords.setText("Forming Words");
         formingWords.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         formingWords.setEnabled(false);
         formingWords.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class mainGUI extends javax.swing.JFrame {
 
         titleOfGameLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         titleOfGameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        titleOfGameLabel.setText("Click al juego que desee iniciar");
+        titleOfGameLabel.setText("Click on the game you want to start");
 
         javax.swing.GroupLayout chooseGamePanelLayout = new javax.swing.GroupLayout(chooseGamePanel);
         chooseGamePanel.setLayout(chooseGamePanelLayout);
@@ -142,7 +142,7 @@ public class mainGUI extends javax.swing.JFrame {
             .addGroup(chooseGamePanelLayout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addComponent(titleOfGameLabel)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         chooseGamePanelLayout.setVerticalGroup(
             chooseGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,18 +186,20 @@ public class mainGUI extends javax.swing.JFrame {
 
     private void enterGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGameButtonActionPerformed
         // TODO add your handling code here:
-        if (nameTextField.getText().equals("")||userTextField.getText().equals("")){//valida si el campo del nombre y del usuario estan vacidos manda un mensaje
+        //valid if the field of the name and the user is empty
+        if (nameTextField.getText().equals("")||userTextField.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane,"Debe ingresar los datos anteriores");
-        }else{//si los campos estan llenos entonces habilita los botones
-            formingWords.setEnabled(true);//enable del boton formindWord pasa a true
-            sumNumbers.setEnabled(true);//enable del boton sumNumber pasa a true
+        }else{//If the fields are full then enable the buttons
+            formingWords.setEnabled(true);//enable of the formindWord button goes to true
+            sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
         }
     }//GEN-LAST:event_enterGameButtonActionPerformed
 
     private void sumNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumNumbersActionPerformed
-        // TODO add your handling code here:
+        /*the link to the selected game is generated*/
         sumNumberGUI sumGUI=new sumNumberGUI();
         sumGUI.setVisible(true);
+        sumGUI.setTitle("Adding Numbers");
         super.dispose();
         sumGUI.setLocationRelativeTo(null);
   
@@ -205,9 +207,10 @@ public class mainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_sumNumbersActionPerformed
 
     private void formingWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formingWordsActionPerformed
-        // TODO add your handling code here:
+        /*the link to the selected game is generated*/
         formingWordsGUI formingGUI=new formingWordsGUI();
         formingGUI.setVisible(true);
+        formingGUI.setTitle("Forming Words");
         super.dispose();
         formingGUI.setLocationRelativeTo(null);
     }//GEN-LAST:event_formingWordsActionPerformed

@@ -102,17 +102,6 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel_sumNumero" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="againButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="attempts_Label" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel3_attempts" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="helpButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="finishGameButton" min="-2" max="-2" attributes="0"/>
@@ -128,7 +117,7 @@
                                   <Component id="jLabel3_equals" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel1_result" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <EmptySpace pref="267" max="32767" attributes="0"/>
+                                  <EmptySpace pref="272" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jTextField1_numberUser" min="-2" pref="97" max="-2" attributes="0"/>
@@ -137,6 +126,17 @@
                                       </Group>
                                       <Component id="jLabel1_numberUser" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="attempts_Label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel3_attempts" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel_sumNumero" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="againButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -154,12 +154,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="againButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel_sumNumero" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel_sumNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="againButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1_numRandom1" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="jLabel2_numRandom2" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
@@ -232,7 +232,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="correctAttempts_Label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sumas acertadas:"/>
+            <Property name="text" type="java.lang.String" value="Successful sums:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1_correctAttempts">
@@ -247,7 +247,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="failedAttempts_Label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sumas no acertadas:"/>
+            <Property name="text" type="java.lang.String" value=" Unsuccessful sums:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2_failedAttempts">
@@ -259,7 +259,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="attempts_Label">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Intentos:"/>
+            <Property name="text" type="java.lang.String" value="Attempts:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3_attempts">
@@ -271,7 +271,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="helpButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ayuda"/>
+            <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="helpButtonActionPerformed"/>
@@ -279,7 +279,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="againButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Otra Vez"/>
+            <Property name="text" type="java.lang.String" value=" Change numbers"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="againButtonActionPerformed"/>
@@ -287,7 +287,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1_numberUser">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ingrese el numero que falta en la ecuaci&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value=" Enter the missing number in the equation"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1_numberUser">
@@ -297,7 +297,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1_compare">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Comparar"/>
+            <Property name="text" type="java.lang.String" value="Compare"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_compareActionPerformed"/>
@@ -308,7 +308,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="finishGameButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Terminar Juego"/>
+            <Property name="text" type="java.lang.String" value=" End Game"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="finishGameButtonActionPerformed"/>
@@ -316,7 +316,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel_sumNumero">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sumando Numeros"/>
+            <Property name="text" type="java.lang.String" value="Adding Numbers"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -11,30 +11,28 @@ package formingWords;
  */
 public class operationFormingWords {
     public String []arrayWords={"flores","cafecito","rolo","hola"};
-    char disformWord[];
+    char[] arrayOfWord;
     public int temPosition;
     public int positionRandom(){
         int random=((int)(Math.random()*3));
-        
         return random;
     }
-    public char [] words(){
+        public char [] words(){
             temPosition=positionRandom();
-            disformWord= new char[arrayWords[temPosition].length()];
+            arrayOfWord= new char[arrayWords[temPosition].length()];
             for (int i = 0; i < arrayWords[temPosition].length(); i++) {
-                disformWord[i]=arrayWords[temPosition].charAt (i);
+                arrayOfWord[i]=arrayWords[temPosition].charAt (i);
             }
-            return disformWord;
-            
-    }
-    
+            return arrayOfWord;
+
+        }
+
     public char [] words2(String currentWord){
-            disformWord= new char[currentWord.length()];
-            for (int i = 0; i < currentWord.length(); i++) {
-                disformWord[i]=currentWord.charAt (i);
-            }
-            return disformWord;
-            
+        arrayOfWord= new char[currentWord.length()];
+        for (int i = 0; i < currentWord.length(); i++) {
+            arrayOfWord[i]=currentWord.charAt (i);
+        }
+        return arrayOfWord;
     }
     public String wordsOriginal(char[]arrayOfword){
         String origalWord="";
@@ -44,7 +42,6 @@ public class operationFormingWords {
         return origalWord;
     }
     public String disformArrayWord(char[] arrayWithCharter){
-        
         int randomTemp=((int)(Math.random()*arrayWithCharter.length-1));
         for (int i = 0; i < arrayWithCharter.length; i++) {
             char temp=arrayWithCharter[i];
@@ -57,6 +54,6 @@ public class operationFormingWords {
         }
         return finalWord;
     }
-     
-    
+
+
 }

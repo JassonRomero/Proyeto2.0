@@ -24,47 +24,49 @@ public class sumNumberGUI extends javax.swing.JFrame {
     public sumNumberGUI() {
         initComponents();
     }
-     private void jButton1_compareActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-     numAttempts++;
-     //JOptionPane.showMessageDialog(null, "Se sumo un intento");
-     int numberUser=Integer.parseInt(jTextField1_numberUser.getText());
-     boolean trueOrFalse=action.addingNumbers(arraysNumbers,numberUser,numAttempts);
-     if(trueOrFalse==true)
-     {
-        //JOptionPane.showMessageDialog(null, "Se sumo un intento correcto");
-        correctAttempts++;
-     }
-     else
-     {
-        //JOptionPane.showMessageDialog(null, "Se sumo un intento fallido");
-        failledAttempts++;
-      
-     }
-     jTextField1_numberUser.setText("");
-     arraysNumbers=action.numRandom();
-     jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));
-     jLabel3_attempts.setText(String.valueOf(numAttempts));
-     jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
-     if(numAttempts%2==0){
-     jLabel1_numRandom1.setText("¿?");
-     jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
-     }else{
-     jLabel2_numRandom2.setText("¿?");
-     jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
-     }
-     jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
-     if(correctAttempts==15)
-     {
-        setVisible(false);
-        this.dispose();
-        mainGUI main=new mainGUI();
-        main.setTitle("Proyecto de Programacion");
-        main.setVisible(true);
-        main.setLocationRelativeTo(null);
-     }
-
-      
-    
+     private void jButton1_compareActionPerformed(java.awt.event.ActionEvent evt) 
+    {                                                 
+        try 
+        {
+            numAttempts++;//when starting, an attempt is added
+            //the number entered by the user is extracted to a variable
+            int numberUser=Integer.parseInt(jTextField1_numberUser.getText());
+            //the necessary variables are passed through parameters in the method that compares the numbers
+            boolean trueOrFalse=action.addingNumbers(arraysNumbers,numberUser,numAttempts);
+            //depends what returned by the previous method adds a correct or failed attempt
+            if(trueOrFalse==true)
+            {
+               correctAttempts++;
+            }
+            else
+            {
+               failledAttempts++;
+            }
+            jTextField1_numberUser.setText("");
+            arraysNumbers=action.numRandom();
+            jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));
+            jLabel3_attempts.setText(String.valueOf(numAttempts));
+            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
+            if(numAttempts%2==0){
+                jLabel1_numRandom1.setText("¿?");
+                jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
+            }else{
+                jLabel2_numRandom2.setText("¿?");
+                jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
+            }
+            jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
+            if(correctAttempts==15)
+            {
+               setVisible(false);
+               this.dispose();
+               mainGUI main=new mainGUI();
+               main.setTitle("Programming Project");
+               main.setVisible(true);
+               main.setLocationRelativeTo(null);
+            } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -137,33 +139,33 @@ public class sumNumberGUI extends javax.swing.JFrame {
 
         jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
 
-        correctAttempts_Label.setText("Sumas acertadas:");
+        correctAttempts_Label.setText("Successful sums:");
 
         jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));
 
-        failedAttempts_Label.setText("Sumas no acertadas:");
+        failedAttempts_Label.setText(" Unsuccessful sums:");
 
         jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
 
-        attempts_Label.setText("Intentos:");
+        attempts_Label.setText("Attempts:");
 
         jLabel3_attempts.setText(String.valueOf(numAttempts));
 
-        helpButton.setText("Ayuda");
+        helpButton.setText("Help");
         helpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 helpButtonActionPerformed(evt);
             }
         });
 
-        againButton.setText("Otra Vez");
+        againButton.setText(" Change numbers");
         againButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 againButtonActionPerformed(evt);
             }
         });
 
-        jLabel1_numberUser.setText("Ingrese el numero que falta en la ecuación");
+        jLabel1_numberUser.setText(" Enter the missing number in the equation");
 
         jTextField1_numberUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,21 +173,21 @@ public class sumNumberGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1_compare.setText("Comparar");
+        jButton1_compare.setText("Compare");
         jButton1_compare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_compareActionPerformed(evt);
             }
         });
 
-        finishGameButton.setText("Terminar Juego");
+        finishGameButton.setText(" End Game");
         finishGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finishGameButtonActionPerformed(evt);
             }
         });
 
-        jLabel_sumNumero.setText("Sumando Numeros");
+        jLabel_sumNumero.setText("Adding Numbers");
 
         javax.swing.GroupLayout jPanel2_frameLayout = new javax.swing.GroupLayout(jPanel2_frame);
         jPanel2_frame.setLayout(jPanel2_frameLayout);
@@ -201,15 +203,6 @@ public class sumNumberGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2_frameLayout.createSequentialGroup()
                         .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                                .addComponent(jLabel_sumNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(againButton))
-                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                                .addComponent(attempts_Label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3_attempts)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
                                 .addComponent(helpButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(finishGameButton))
@@ -224,13 +217,22 @@ public class sumNumberGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel3_equals)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1_result, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2_frameLayout.createSequentialGroup()
                                         .addComponent(jTextField1_numberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jButton1_compare))
-                                    .addComponent(jLabel1_numberUser))))
+                                    .addComponent(jLabel1_numberUser)))
+                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
+                                .addComponent(attempts_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3_attempts)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
+                                .addComponent(jLabel_sumNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(againButton)))
                         .addContainerGap())
                     .addGroup(jPanel2_frameLayout.createSequentialGroup()
                         .addComponent(failedAttempts_Label)
@@ -241,11 +243,11 @@ public class sumNumberGUI extends javax.swing.JFrame {
         jPanel2_frameLayout.setVerticalGroup(
             jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(againButton)
-                    .addComponent(jLabel_sumNumero))
-                .addGap(36, 36, 36)
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_sumNumero)
+                    .addComponent(againButton))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1_numRandom1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2_numRandom2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,24 +297,33 @@ public class sumNumberGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void againButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_againButtonActionPerformed
-     arraysNumbers=action.numRandom();
-     numAttempts++;
-     if(numAttempts%2==0){
-     jLabel1_numRandom1.setText("¿?");
-     jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
-     }else{
-     jLabel2_numRandom2.setText("¿?");
-     jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
-     }
-     jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
-     failledAttempts++;
-     jLabel3_attempts.setText(String.valueOf(numAttempts));
-     jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
+        try {
+            arraysNumbers=action.numRandom();
+            numAttempts++;
+            if(numAttempts%2==0){
+            jLabel1_numRandom1.setText("¿?");
+            jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
+            }else{
+            jLabel2_numRandom2.setText("¿?");
+            jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
+            }
+            jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
+            failledAttempts++;
+            jLabel3_attempts.setText(String.valueOf(numAttempts));
+            jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));  
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
+
     }//GEN-LAST:event_againButtonActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        OperationSumNumbers help=new OperationSumNumbers();
-        help.helpMe();
+        try {
+            action.helpMe();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
+
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void jTextField1_numberUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_numberUserActionPerformed
@@ -324,18 +335,22 @@ public class sumNumberGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_compareActionPerformed
 */
     private void finishGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishGameButtonActionPerformed
-        
-        JOptionPane.showMessageDialog(null, String.valueOf("Intentos realizados: "+numAttempts+" "
-                                                            +"\n"
-                                                            +"Intetos correctos: "+correctAttempts+" "
-                                                            +"\n"
-                                                            +"Intentos fallidos: "+failledAttempts));
-        setVisible(false);
-        this.dispose();
-        mainGUI main=new mainGUI();
-        main.setTitle("Proyecto de Programacion");
-        main.setVisible(true);
-        main.setLocationRelativeTo(null);
+        try {
+            JOptionPane.showMessageDialog(null, String.valueOf("Attempts made: "+numAttempts+" "
+                                                                +"\n"
+                                                                +"Right attempts: "+correctAttempts+" "
+                                                                +"\n"
+                                                                +"Failed attempts: "+failledAttempts));
+            setVisible(false);
+            this.dispose();
+            mainGUI main=new mainGUI();
+            main.setTitle("Programming Project");
+            main.setVisible(true);
+            main.setLocationRelativeTo(null); 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"An error has occured!");
+        }
+       
     }//GEN-LAST:event_finishGameButtonActionPerformed
 
     /**

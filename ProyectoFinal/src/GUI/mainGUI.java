@@ -5,6 +5,9 @@
  */
 package GUI;
 
+
+import User.User;
+import User.UserImplement;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +19,12 @@ public class mainGUI extends javax.swing.JFrame {
     /**
      * Creates new form mainGUI
      */
+    UserImplement UI= new UserImplement();
+    
     public mainGUI() {
         initComponents();
     }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,12 +192,18 @@ public class mainGUI extends javax.swing.JFrame {
     private void enterGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGameButtonActionPerformed
         // TODO add your handling code here:
         //valid if the field of the name and the user is empty
+        
+        String userName= userTextField.getText();
+        User user = new User(userName);
+        UI.UserInsert(user);
+        
         if (nameTextField.getText().equals("")||userTextField.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane,"Debe ingresar los datos anteriores");
+            JOptionPane.showMessageDialog(rootPane,"Insert the above data");
         }else{//If the fields are full then enable the buttons
             formingWords.setEnabled(true);//enable of the formindWord button goes to true
             sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
         }
+        
     }//GEN-LAST:event_enterGameButtonActionPerformed
 
     private void sumNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumNumbersActionPerformed

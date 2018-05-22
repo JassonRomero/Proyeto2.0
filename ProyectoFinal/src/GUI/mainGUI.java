@@ -5,7 +5,6 @@
  */
 package GUI;
 
-
 import User.User;
 import User.UserImplement;
 import javax.swing.JOptionPane;
@@ -19,12 +18,12 @@ public class mainGUI extends javax.swing.JFrame {
     /**
      * Creates new form mainGUI
      */
-    UserImplement UI= new UserImplement();
-    
+    UserImplement UI = new UserImplement();
+
     public mainGUI() {
         initComponents();
     }
- 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,9 +34,9 @@ public class mainGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         userPanel = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
+        passwordTextField = new javax.swing.JTextField();
         userTextField = new javax.swing.JTextField();
         enterGameButton = new javax.swing.JButton();
         chooseGamePanel = new javax.swing.JPanel();
@@ -49,15 +48,15 @@ public class mainGUI extends javax.swing.JFrame {
 
         userPanel.setBackground(new java.awt.Color(204, 204, 204));
 
-        nameLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
-        nameLabel.setText("Name");
+        passwordLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
+        passwordLabel.setText("Password");
 
         userLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         userLabel.setText("User");
 
-        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextFieldActionPerformed(evt);
+                passwordTextFieldActionPerformed(evt);
             }
         });
 
@@ -76,34 +75,43 @@ public class mainGUI extends javax.swing.JFrame {
         userPanelLayout.setHorizontalGroup(
             userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userPanelLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nameLabel)
-                    .addComponent(userLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(userTextField))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enterGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(userLabel)
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(passwordLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userPanelLayout.createSequentialGroup()
+                        .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enterGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(userPanelLayout.createSequentialGroup()
+                        .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         userPanelLayout.setVerticalGroup(
             userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(58, 58, 58)
                 .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userLabel)
                     .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(enterGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userPanelLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(enterGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordLabel))
+                        .addGap(37, 37, 37))))
         );
 
         chooseGamePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -185,41 +193,49 @@ public class mainGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextFieldActionPerformed
+    }//GEN-LAST:event_passwordTextFieldActionPerformed
 
     private void enterGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGameButtonActionPerformed
         // TODO add your handling code here:
         //valid if the field of the name and the user is empty
-        
-        String userName= userTextField.getText();
-        User user = new User(userName);
+
+        String userName = userTextField.getText();
+        String password = passwordTextField.getText();
+        User user = new User(userName, password);
         UI.UserInsert(user);
-        
-        if (nameTextField.getText().equals("")||userTextField.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane,"Insert the above data");
-        }else{//If the fields are full then enable the buttons
+        if (passwordTextField.getText().equals("") || userTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Insert the above data");
+        } else {//If the fields are full then enable the buttons
             formingWords.setEnabled(true);//enable of the formindWord button goes to true
             sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
         }
-        
+        if (UI.validatePassword(password)==false) {
+            JOptionPane.showMessageDialog(rootPane, "Incorrect Password");
+              formingWords.setEnabled(false);//enable of the formindWord button goes to true
+            sumNumbers.setEnabled(false);
+             } else {//If the fields are full then enable the buttons
+            formingWords.setEnabled(true);//enable of the formindWord button goes to true
+            sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
+        }
+
     }//GEN-LAST:event_enterGameButtonActionPerformed
 
     private void sumNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumNumbersActionPerformed
         /*the link to the selected game is generated*/
-        sumNumberGUI sumGUI=new sumNumberGUI();
+        sumNumberGUI sumGUI = new sumNumberGUI();
         sumGUI.setVisible(true);
         sumGUI.setTitle("Adding Numbers");
         super.dispose();
         sumGUI.setLocationRelativeTo(null);
-  
-        
+
+
     }//GEN-LAST:event_sumNumbersActionPerformed
 
     private void formingWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formingWordsActionPerformed
         /*the link to the selected game is generated*/
-        formingWordsGUI formingGUI=new formingWordsGUI();
+        formingWordsGUI formingGUI = new formingWordsGUI();
         formingGUI.setVisible(true);
         formingGUI.setTitle("Forming Words");
         super.dispose();
@@ -229,14 +245,13 @@ public class mainGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel chooseGamePanel;
     private javax.swing.JButton enterGameButton;
     private javax.swing.JButton formingWords;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField nameTextField;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField passwordTextField;
     private javax.swing.JButton sumNumbers;
     private javax.swing.JLabel titleOfGameLabel;
     private javax.swing.JLabel userLabel;

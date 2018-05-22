@@ -211,11 +211,11 @@ public class mainGUI extends javax.swing.JFrame {
             formingWords.setEnabled(true);//enable of the formindWord button goes to true
             sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
         }
-        if (UI.validatePassword(password)==false) {
+        if (UI.validatePassword(password) == false) {
             JOptionPane.showMessageDialog(rootPane, "Incorrect Password");
-              formingWords.setEnabled(false);//enable of the formindWord button goes to true
+            formingWords.setEnabled(false);//enable of the formindWord button goes to true
             sumNumbers.setEnabled(false);
-             } else {//If the fields are full then enable the buttons
+        } else {//If the fields are full then enable the buttons
             formingWords.setEnabled(true);//enable of the formindWord button goes to true
             sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
         }

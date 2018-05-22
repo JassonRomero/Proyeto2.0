@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+
 import javax.swing.JOptionPane;
 import sumNumbers.OperationSumNumbers;
 
@@ -16,59 +17,57 @@ public class sumNumberGUI extends javax.swing.JFrame {
     /**
      * Creates new form sumNumberGUI
      */
-    OperationSumNumbers action=new OperationSumNumbers();
+    OperationSumNumbers action = new OperationSumNumbers();
     //initialize the variables
-    int numAttempts=action.attempts();
-    int correctAttempts=action.correctAttempts();
-    int failledAttempts=action.failedatttempts();
-    int[]arraysNumbers=action.numRandom();
+    int numAttempts = action.attempts();
+    int correctAttempts = action.correctAttempts();
+    int failledAttempts = action.failedatttempts();
+    int[] arraysNumbers = action.numRandom();
+
     public sumNumberGUI() {
         initComponents();
     }
-     private void jButton1_compareActionPerformed(java.awt.event.ActionEvent evt) 
-    {                                                 
-        try 
-        {
+
+    private void jButton1_compareActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
             numAttempts++;//when starting, an attempt is added
             //the number entered by the user is extracted to a variable
-            int numberUser=Integer.parseInt(jTextField1_numberUser.getText());
+            int numberUser = Integer.parseInt(jTextField1_numberUser.getText());
             //the necessary variables are passed through parameters in the method that compares the numbers
-            boolean trueOrFalse=action.addingNumbers(arraysNumbers,numberUser,numAttempts);
+            boolean trueOrFalse = action.addingNumbers(arraysNumbers, numberUser, numAttempts);
             //depends what returned by the previous method adds a correct or failed attempt
-            if(trueOrFalse==true)
-            {
-               correctAttempts++;
-            }
-            else
-            {
-               failledAttempts++;
+            if (trueOrFalse == true) {
+                correctAttempts++;
+            } else {
+                failledAttempts++;
             }
             jTextField1_numberUser.setText("");//textfield numberUser set the text with nothing
-            arraysNumbers=action.numRandom();
+            arraysNumbers = action.numRandom();
             jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));//the label of correctAttemps set the text of the variable correctAtempts but this variable have to convert in String
             jLabel3_attempts.setText(String.valueOf(numAttempts));//the label of atempts set the text of the vairable numAttempts
             jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));//failedAttempts set the text of the variable failledAttemps
-            if(numAttempts%2==0){//if numAttempts mod 2 equal 0 it mean that numAttempts is pair
+            if (numAttempts % 2 == 0) {//if numAttempts mod 2 equal 0 it mean that numAttempts is pair
                 jLabel1_numRandom1.setText("¿?");//labe1 of numRandom set the text "¿?"
                 jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));//
-            }else{
+            } else {
                 jLabel2_numRandom2.setText("¿?");
                 jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
             }
             jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
-            if(correctAttempts==15)//until correctAttempts=15 the game is finished
+            if (correctAttempts == 15)//until correctAttempts=15 the game is finished
             {
-               setVisible(false);//this jframe is hidden
-               this.dispose();//close
-               mainGUI main=new mainGUI();//new mainGUI
-               main.setTitle("Programming Project");
-               main.setVisible(true);
-               main.setLocationRelativeTo(null);
-            } 
+                setVisible(false);//this jframe is hidden
+                this.dispose();//close
+                mainGUI main = new mainGUI();//new mainGUI
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"An error has occured!");
+            JOptionPane.showMessageDialog(null, "An error has occured!");
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -299,21 +298,21 @@ public class sumNumberGUI extends javax.swing.JFrame {
 
     private void againButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_againButtonActionPerformed
         try {
-            arraysNumbers=action.numRandom();//call random Number
+            arraysNumbers = action.numRandom();//call random Number
             numAttempts++;//attempts +1
-            if(numAttempts%2==0){//if residue is cero
-            jLabel1_numRandom1.setText("¿?");
-            jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
-            }else{
-            jLabel2_numRandom2.setText("¿?");
-            jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
+            if (numAttempts % 2 == 0) {//if residue is cero
+                jLabel1_numRandom1.setText("¿?");
+                jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
+            } else {
+                jLabel2_numRandom2.setText("¿?");
+                jLabel1_numRandom1.setText(String.valueOf(arraysNumbers[0]));
             }
             jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
             failledAttempts++;//failedAttempts sum 1
             jLabel3_attempts.setText(String.valueOf(numAttempts));
             jLabel2_failedAttempts.setText(String.valueOf(failledAttempts)); //set the text of label failedAttempts 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"An error has occured!");
+            JOptionPane.showMessageDialog(null, "An error has occured!");
         }
 
     }//GEN-LAST:event_againButtonActionPerformed
@@ -322,7 +321,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
         try {
             action.helpMe();//call the method helpme
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"An error has occured!");
+            JOptionPane.showMessageDialog(null, "An error has occured!");
         }
 
     }//GEN-LAST:event_helpButtonActionPerformed
@@ -337,21 +336,21 @@ public class sumNumberGUI extends javax.swing.JFrame {
 */
     private void finishGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishGameButtonActionPerformed
         try {
-            JOptionPane.showMessageDialog(null, String.valueOf("Attempts made: "+numAttempts+" "
-                                                                +"\n"
-                                                                +"Right attempts: "+correctAttempts+" "
-                                                                +"\n"
-                                                                +"Failed attempts: "+failledAttempts));//show all the attempts
+            JOptionPane.showMessageDialog(null, String.valueOf("Attempts made: " + numAttempts + " "
+                    + "\n"
+                    + "Right attempts: " + correctAttempts + " "
+                    + "\n"
+                    + "Failed attempts: " + failledAttempts));//show all the attempts
             setVisible(false);
             this.dispose();//close 
-            mainGUI main=new mainGUI();//new instance for a new game
+            mainGUI main = new mainGUI();//new instance for a new game
             main.setTitle("Programming Project");
             main.setVisible(true);
-            main.setLocationRelativeTo(null); 
+            main.setLocationRelativeTo(null);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"An error has occured!");
+            JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-       
+
     }//GEN-LAST:event_finishGameButtonActionPerformed
 
     /**

@@ -98,7 +98,7 @@ public class UserImplement {
         return existe;
     }
 
-    public boolean validatePassword( String password) {
+    public boolean validatePassword(String password) {
         boolean existPassword = false;
 
         String ruta = "users.txt";
@@ -122,8 +122,9 @@ public class UserImplement {
         } catch (IOException e) {
         }
         return existPassword;
-     
-     }
+
+    }
+
     public String getFileName() {
         return fileName;
     }

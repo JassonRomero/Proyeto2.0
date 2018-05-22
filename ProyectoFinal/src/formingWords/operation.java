@@ -10,5 +10,15 @@ package formingWords;
  * @author Andrew
  */
 public interface operation {
-    
+
+    public int positionRandom();
+
+    public char[] words();
+
+    public char[] words2(String currentWord);
+
+    public String wordsOriginal(char[] arrayOfword);
+
+    public String disformArrayWord(char[] arrayWithCharter);
+
 }

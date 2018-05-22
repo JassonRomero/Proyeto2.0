@@ -10,10 +10,16 @@ package sumNumbers;
  * @author Jasson
  */
 public interface Operation {
+
     public int[] numRandom();
+
     public void helpMe();
-    public boolean addingNumbers(int[]arraysNumbers,int numberUser,int attempts); 
+
+    public boolean addingNumbers(int[] arraysNumbers, int numberUser, int attempts);
+
     public int attempts();
+
     public int correctAttempts();
+
     public int failedatttempts();
 }

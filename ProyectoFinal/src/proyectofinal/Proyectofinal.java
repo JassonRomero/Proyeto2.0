@@ -18,10 +18,10 @@ public class Proyectofinal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        mainGUI main=new mainGUI();
+        mainGUI main = new mainGUI();
         main.setTitle("Programming Project");
         main.setVisible(true);
         main.setLocationRelativeTo(null);
     }
-    
+
 }

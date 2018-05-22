@@ -5,6 +5,8 @@
  */
 package formingWords;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Andrew
@@ -14,7 +16,7 @@ public class operationFormingWords {
     char[] arrayOfWord;
     public int temPosition;
     public int positionRandom(){
-        int random=((int)(Math.random()*3));
+        int random=((int)(Math.random()*4));
         return random;
     }
         public char [] words(){
@@ -42,12 +44,7 @@ public class operationFormingWords {
         return origalWord;
     }
     public String disformArrayWord(char[] arrayWithCharter){
-        int randomTemp=((int)(Math.random()*arrayWithCharter.length-1));
-        for (int i = 0; i < arrayWithCharter.length; i++) {
-            char temp=arrayWithCharter[i];
-            arrayWithCharter[i]=arrayWithCharter[randomTemp];
-            arrayWithCharter[randomTemp]=temp;
-        }
+        Arrays.sort(arrayWithCharter);
         String finalWord="";
         for (char c : arrayWithCharter) {
             finalWord+=c+"  ";

@@ -21,6 +21,14 @@ public class formingWordsGUI extends javax.swing.JFrame {
     public String showDisform="";
     public int Score=100;
     public String answerUserGlobal="";
+    public boolean band1=false;
+    public boolean band2=false;
+    public boolean band3=false;
+    public boolean band4=false;
+    public boolean band5=false;
+    public boolean band6=false;
+    public boolean band7=false;
+    public boolean band8=false;
     public formingWordsGUI() {
         initComponents();
         showDisform=op.disformArrayWord(op.words2(originalWord));
@@ -221,10 +229,10 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfformingWordsLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(showDisformingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(introduceWord, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,12 +248,6 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                         .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                                .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89)
-                                .addComponent(jButton1))
-                            .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,7 +258,14 @@ public class formingWordsGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOfformingWordsLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89)
+                                .addComponent(jButton1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
@@ -387,16 +396,20 @@ public class formingWordsGUI extends javax.swing.JFrame {
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
+        if(band1==false){
         String textOne=jTextField1.getText();
         if(jTextField1.getText().length()==1){
             evt.consume();
         }
+        
         char firtChar=originalWord.charAt(0);
         if(textOne.equalsIgnoreCase(String.valueOf(firtChar))){
             JOptionPane.showMessageDialog(rootPane, "Iguales");
             jTextField1.setEditable(false);
             jTextField2.setEditable(true);
             answerUserGlobal+=textOne;
+            textOne="";
+            band1=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -409,14 +422,17 @@ public class formingWordsGUI extends javax.swing.JFrame {
             jTextField7.setText("");
             jTextField8.setText("");
             jTextField1.setEditable(true);
-            
+            jTextField1.addKeyListener(null);
             
         }
+        
         System.out.println("Palabra usuario"+textOne+" palabra sistema: "+answerUserGlobal);
+        }
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         // TODO add your handling code here:
+        if(band2==false){
         String textTwo=jTextField2.getText();
         if(jTextField2.getText().length()==1){
             evt.consume();
@@ -427,6 +443,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textTwo;
             jTextField2.setEditable(false);
             jTextField3.setEditable(true);
+            textTwo="";
+            band2=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -442,11 +460,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
             
         }
         System.out.println("Palabra usuario"+textTwo+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         // TODO add your handling code here:
+        if(band3==false){
         String textThree=jTextField3.getText();
         if(jTextField3.getText().length()==1){
             evt.consume();
@@ -457,6 +476,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textThree;
             jTextField3.setEditable(false);
             jTextField4.setEditable(true);
+            textThree="";
+            band3=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -472,11 +493,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
             
         }
         System.out.println("Palabra usuario"+textThree+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         // TODO add your handling code here:
+        if(band4==false){
         String textFour=jTextField4.getText();
         if(jTextField4.getText().length()==1){
             evt.consume();
@@ -487,6 +509,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textFour;
             jTextField4.setEditable(false);
             jTextField5.setEditable(true);
+            textFour="";
+            band4=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -498,7 +522,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
             jTextField6.setText("");
             jTextField7.setText("");
             jTextField8.setText("");
-            jTextField1.setEditable(false);
+            jTextField1.setEditable(true);
             jTextField1.setEnabled(false);
             jTextField2.setEditable(false);
             jTextField4.setEditable(false);
@@ -519,11 +543,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
         System.out.println("Palabra usuario"+textFour+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
+        if(band5==false){
         String textFive=jTextField5.getText();
         if(jTextField5.getText().length()==1){
             evt.consume();
@@ -534,6 +559,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textFive;
             jTextField5.setEditable(false);
             jTextField6.setEditable(true);
+            textFive="";
+            band5=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -563,11 +590,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
            answerUserGlobal="";
         }
        System.out.println("Palabra usuario"+textFive+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         // TODO add your handling code here:
+        if(band6==false){
         String textSix=jTextField6.getText();
         if(jTextField6.getText().length()==1){
             evt.consume();
@@ -578,6 +606,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textSix;
             jTextField6.setEditable(false);
             jTextField7.setEditable(true);
+            textSix="";
+            band6=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -607,11 +637,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal="";
         }
       System.out.println("Palabra usuario"+textSix+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         // TODO add your handling code here:
+        if(band7==false){
         String textSeven=jTextField7.getText();
         if(jTextField7.getText().length()==1){
             evt.consume();
@@ -622,6 +653,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal+=textSeven;
             jTextField7.setEditable(false);
             jTextField8.setEditable(true);
+            textSeven="";
+            band7=true;
             
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
@@ -652,11 +685,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal="";
         }
         System.out.println("Palabra usuario"+textSeven+" palabra sistema: "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
         // TODO add your handling code here:
+        if(band8==false){
         String textEight=jTextField8.getText();
         if(jTextField8.getText().length()==1){
             evt.consume();
@@ -666,7 +700,8 @@ public class formingWordsGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Iguales");
             answerUserGlobal+=textEight;
             jTextField8.setEditable(false);
-            
+            textEight="";
+            band8=true;
         }
         if(answerUserGlobal.equalsIgnoreCase(originalWord)){
             JOptionPane.showMessageDialog(rootPane, "Palabra goblal es igual");
@@ -696,7 +731,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
             answerUserGlobal="";
         }
         System.out.println("Palabra usuario:  "+textEight+"  palabra sistema:  "+answerUserGlobal);
-
+        }
     }//GEN-LAST:event_jTextField8KeyTyped
 
     /**

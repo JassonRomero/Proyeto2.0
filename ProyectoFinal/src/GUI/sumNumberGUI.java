@@ -172,6 +172,11 @@ public class sumNumberGUI extends javax.swing.JFrame {
                 jTextField1_numberUserActionPerformed(evt);
             }
         });
+        jTextField1_numberUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1_numberUserKeyTyped(evt);
+            }
+        });
 
         jButton1_compare.setText("Compare");
         jButton1_compare.addActionListener(new java.awt.event.ActionListener() {
@@ -352,6 +357,13 @@ public class sumNumberGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_finishGameButtonActionPerformed
+
+    private void jTextField1_numberUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_numberUserKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '1' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1_numberUserKeyTyped
 
     /**
      * @param args the command line arguments

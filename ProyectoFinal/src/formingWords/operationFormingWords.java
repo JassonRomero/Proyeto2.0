@@ -17,7 +17,7 @@ public class operationFormingWords implements operation {
     public String[] arrayWords = {"cath", "while", "computer", "keyword", "program", "java", "compiler", "pseint",
         "netbeans", "eclipse", "mouse", "bugs", "projects", "github", "string", "keyboard", "master", "circuit",
         "public", "branch", "private", "debug", "linux", "arrays", "boolean", "abstract", "commit", "random", "class",
-        "push", "pull", "data", "file", "override", "return", "void", "package", "access", "digital", "switch", "else",
+        "push", "pull", "data", "file", "override", "return", "void", "package", "digital", "switch", "else",
         "double", "jlabel", "password", "jframe", "network", "intel", "nvidia", "main", "console"};//arrays with Strings
     char[] arrayOfWord;//define global arrays of char  
     public int temPosition;//a position global use for the positionRandom()

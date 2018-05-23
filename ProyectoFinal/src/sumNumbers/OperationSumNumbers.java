@@ -45,7 +45,7 @@ public class OperationSumNumbers implements Operation {
                     + "3. If you are not sure of the result of any sum and want other numbers press the button change numbers"
                     + "\n"
                     + "4. When you complete a total of 15 sums correctly the game will end"
-                    + " or if you want to finish press the finish button game");
+                    + " or if you want to finish press the \"end game\" button");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }

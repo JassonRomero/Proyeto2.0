@@ -33,16 +33,31 @@ public class mainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton_connect = new javax.swing.JButton();
+        passwordTextField = new javax.swing.JTextField();
         userPanel = new javax.swing.JPanel();
         passwordLabel = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
-        passwordTextField = new javax.swing.JTextField();
         userTextField = new javax.swing.JTextField();
         enterGameButton = new javax.swing.JButton();
+        jPasswordField_password = new javax.swing.JPasswordField();
         chooseGamePanel = new javax.swing.JPanel();
         sumNumbers = new javax.swing.JButton();
         formingWords = new javax.swing.JButton();
         titleOfGameLabel = new javax.swing.JLabel();
+
+        jButton_connect.setText("Connect");
+
+        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTextFieldActionPerformed(evt);
+            }
+        });
+        passwordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordTextFieldKeyTyped(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,9 +69,9 @@ public class mainGUI extends javax.swing.JFrame {
         userLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         userLabel.setText("User");
 
-        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextFieldActionPerformed(evt);
+        userTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userTextFieldKeyTyped(evt);
             }
         });
 
@@ -67,6 +82,12 @@ public class mainGUI extends javax.swing.JFrame {
         enterGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterGameButtonActionPerformed(evt);
+            }
+        });
+
+        jPasswordField_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordField_passwordKeyTyped(evt);
             }
         });
 
@@ -85,14 +106,11 @@ public class mainGUI extends javax.swing.JFrame {
                         .addComponent(passwordLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(userPanelLayout.createSequentialGroup()
-                        .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enterGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(userPanelLayout.createSequentialGroup()
-                        .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jPasswordField_password, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enterGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         userPanelLayout.setVerticalGroup(
             userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,9 +127,9 @@ public class mainGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordLabel))
-                        .addGap(37, 37, 37))))
+                            .addComponent(passwordLabel)
+                            .addComponent(jPasswordField_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38))))
         );
 
         chooseGamePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -202,45 +220,100 @@ public class mainGUI extends javax.swing.JFrame {
         //valid if the field of the name and the user is empty
 
         String userName = userTextField.getText();
-        String password = passwordTextField.getText();
+        char[] arrayC = jPasswordField_password.getPassword();
+        String password = new String(arrayC);
+        int contador = 0;
         User user = new User(userName, password);
-        UI.UserInsert(user);
-        if (passwordTextField.getText().equals("") || userTextField.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Insert the above data");
-        } else {//If the fields are full then enable the buttons
-            formingWords.setEnabled(true);//enable of the formindWord button goes to true
-            sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
+        try {
+            if (jPasswordField_password.getPassword().equals("")) {
+                formingWords.setEnabled(false);
+                sumNumbers.setEnabled(false);
+                JOptionPane.showMessageDialog(rootPane, "Insert all the required data");
+            } else {
+                contador++;
+            }
+            if (userTextField.getText().equals("")) {
+                formingWords.setEnabled(false);
+                sumNumbers.setEnabled(false);
+                JOptionPane.showMessageDialog(rootPane, "Insert all the required data");
+            } else {
+                contador++;
+            }
+            if (contador == 2) {
+                UI.UserInsert(user);
+                if (UI.validatePassword(password) == false) {
+                    JOptionPane.showMessageDialog(rootPane, "Incorrect Password");
+                    formingWords.setEnabled(false);//enable of the formindWord button goes to true
+                    sumNumbers.setEnabled(false);
+                } else {//If the fields are full then enable the buttons
+                    JOptionPane.showMessageDialog(rootPane, "Correct Password");
+                    formingWords.setEnabled(true);//enable of the formindWord button goes to true
+                    sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-        if (UI.validatePassword(password) == false) {
-            JOptionPane.showMessageDialog(rootPane, "Incorrect Password");
-            formingWords.setEnabled(false);//enable of the formindWord button goes to true
-            sumNumbers.setEnabled(false);
-        } else {//If the fields are full then enable the buttons
-            formingWords.setEnabled(true);//enable of the formindWord button goes to true
-            sumNumbers.setEnabled(true);//enable of the sumNumber button goes to true
-        }
-
     }//GEN-LAST:event_enterGameButtonActionPerformed
 
     private void sumNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumNumbersActionPerformed
         /*the link to the selected game is generated*/
-        sumNumberGUI sumGUI = new sumNumberGUI();
-        sumGUI.setVisible(true);
-        sumGUI.setTitle("Adding Numbers");
-        super.dispose();
-        sumGUI.setLocationRelativeTo(null);
+        try {
+            sumNumberGUI sumGUI = new sumNumberGUI();
+            sumGUI.setVisible(true);
+            sumGUI.setTitle("Adding Numbers");
+            super.dispose();
+            sumGUI.setLocationRelativeTo(null);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
 
 
     }//GEN-LAST:event_sumNumbersActionPerformed
 
     private void formingWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formingWordsActionPerformed
         /*the link to the selected game is generated*/
-        formingWordsGUI formingGUI = new formingWordsGUI();
-        formingGUI.setVisible(true);
-        formingGUI.setTitle("Forming Words");
-        super.dispose();
-        formingGUI.setLocationRelativeTo(null);
+        try {
+            formingWordsGUI formingGUI = new formingWordsGUI();
+            formingGUI.setVisible(true);
+            formingGUI.setTitle("Forming Words");
+            super.dispose();
+            formingGUI.setLocationRelativeTo(null);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
+
     }//GEN-LAST:event_formingWordsActionPerformed
+
+    private void userTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTextFieldKeyTyped
+        // TODO add your handling code here:
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
+
+    }//GEN-LAST:event_userTextFieldKeyTyped
+
+    private void passwordTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordTextFieldKeyTyped
+        // TODO add your handling code here:
+        try {
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                evt.consume();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
+
+    }//GEN-LAST:event_passwordTextFieldKeyTyped
+
+    private void jPasswordField_passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField_passwordKeyTyped
+
+    }//GEN-LAST:event_jPasswordField_passwordKeyTyped
 
     /**
      * @param args the command line arguments
@@ -250,6 +323,8 @@ public class mainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel chooseGamePanel;
     private javax.swing.JButton enterGameButton;
     private javax.swing.JButton formingWords;
+    private javax.swing.JButton jButton_connect;
+    private javax.swing.JPasswordField jPasswordField_password;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JButton sumNumbers;

@@ -31,10 +31,10 @@ public class UserImplement {
         try {
 
             if (file.exists()) {
-                System.out.println("Ya existe el archivo y se sobreescribira sobre el mismo");
+                System.out.println("The file already exists and it will be overwritten on it");
             } else {
                 file.createNewFile();
-                System.out.println("no existe el archivo");
+                System.out.println("The file does not exist");
             }
 
             flWriter = new FileWriter(file.getAbsoluteFile(), true);
@@ -47,7 +47,7 @@ public class UserImplement {
                 // usearSearch= true;
 
             } else {
-                JOptionPane.showMessageDialog(null, "the user already exists");
+                JOptionPane.showMessageDialog(null, "The user already exists");
                 // usearSearch=false;
             }
             brWriter.close();

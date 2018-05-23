@@ -23,7 +23,7 @@ public class UserImplement {
     private String path = "users.txt";
     private File file = new File(path);
 
-    public /*boolean*/ void UserInsert(User user) {
+    public void UserInsert(User user) {//method to enter the user and compare it to see if it already exists
         String ruta = "users.txt";
         File file = new File(ruta);
         boolean usearSearch = true;
@@ -40,15 +40,15 @@ public class UserImplement {
             flWriter = new FileWriter(file.getAbsoluteFile(), true);
             BufferedWriter brWriter = new BufferedWriter(flWriter);
             boolean existe = searchUser(user.getUserName());
-            if (existe == false) {
-                brWriter.write(user.getUserName() + ";" + user.getPassword());
+            if (existe == false) {//use a variable exists from the searchUser method
+                brWriter.write(user.getUserName() + ";" + user.getPassword());//introduce a new  user with you password
 
                 brWriter.newLine();
-                // usearSearch= true;
+                
 
             } else {
                 JOptionPane.showMessageDialog(null, "The user already exists");
-                // usearSearch=false;
+                
             }
             brWriter.close();
 
@@ -73,7 +73,7 @@ public class UserImplement {
     }
 
     public boolean searchUser(String userName) {
-        boolean existe = false;
+        boolean exists = false;
 
         String ruta = "users.txt";
         File file = new File(ruta);
@@ -87,15 +87,15 @@ public class UserImplement {
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
                 if (cadena.indexOf(";") != -1) {
-                    if (cadena.split(";")[0].equalsIgnoreCase(userName)) {
+                    if (cadena.split(";")[0].equalsIgnoreCase(userName)) {//search the user int the txt and compare
                         System.out.println("Exists");
-                        existe = true;
+                        exists = true;
                     }
                 }
             }
         } catch (IOException e) {
         }
-        return existe;
+        return exists;
     }
 
     public boolean validatePassword(String password) {
@@ -113,7 +113,7 @@ public class UserImplement {
             BufferedReader buffReader = new BufferedReader(fileR);
             while ((cadena = buffReader.readLine()) != null) {
                 if (cadena.indexOf(";") != -1) {
-                    if (cadena.split(";")[1].equalsIgnoreCase(password)) {
+                    if (cadena.split(";")[1].equalsIgnoreCase(password)) {//compares the password entered as a parameter with the ones already entered in the txt
                         System.out.println("Correct");
                         existPassword = true;
                     }

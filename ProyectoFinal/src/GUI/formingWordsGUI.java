@@ -17,11 +17,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
     /**
      * Creates new form formingWordsGUI
      */
-    operationFormingWords op = new operationFormingWords();
-
+    operationFormingWords op = new operationFormingWords();//call at new intances
+//definite all variable global for used in this class 
     public String originalWord = op.wordsOriginal(op.words());
     public String showDisform = "";
-    public int Score = 100;
+    public int Score = 100, correctAnswer = 0;
+
     public String answerUserGlobal = "";
     public boolean band1 = false;
     public boolean band2 = false;
@@ -32,12 +33,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
     public boolean band7 = false;
     public boolean band8 = false;
 
-    public formingWordsGUI() {
+    public formingWordsGUI() {//in the constructor called the methods for show by first time
         initComponents();
-        showDisform = op.disformArrayWord(op.words2(originalWord));
-        showDisformingLabel.setText(showDisform);
-        showScore.setText(String.valueOf(Score));
-
+        showDisform = op.disformArrayWord(op.words2(originalWord));//op.words2 passed by parameters
+        showDisformingLabel.setText(showDisform);//set the text of the word disformed by first
+        showScore.setText(String.valueOf(Score));//set the text of score for first
+        showCorrectAnswer.setText(String.valueOf(correctAnswer));
     }
 
     /**
@@ -57,15 +58,17 @@ public class formingWordsGUI extends javax.swing.JFrame {
         formingTitleLabel = new javax.swing.JLabel();
         scoreTitleLabel = new javax.swing.JLabel();
         showDisformingLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        TextField1 = new javax.swing.JTextField();
+        TextField2 = new javax.swing.JTextField();
+        TextField3 = new javax.swing.JTextField();
+        TextField4 = new javax.swing.JTextField();
+        TextField5 = new javax.swing.JTextField();
+        TextField6 = new javax.swing.JTextField();
+        TextField7 = new javax.swing.JTextField();
+        TextField8 = new javax.swing.JTextField();
         showScore = new javax.swing.JLabel();
+        correctAnswersLabel = new javax.swing.JLabel();
+        showCorrectAnswer = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -110,67 +113,73 @@ public class formingWordsGUI extends javax.swing.JFrame {
         showDisformingLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         showDisformingLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TextField1ActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
-            }
-        });
-
-        jTextField2.setEditable(false);
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
+                TextField1KeyTyped(evt);
             }
         });
 
-        jTextField3.setEditable(false);
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField2.setEditable(false);
+        TextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                TextField2KeyTyped(evt);
             }
         });
 
-        jTextField4.setEditable(false);
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField3.setEditable(false);
+        TextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
+                TextField3KeyTyped(evt);
             }
         });
 
-        jTextField5.setEditable(false);
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField4.setEditable(false);
+        TextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
+                TextField4KeyTyped(evt);
             }
         });
 
-        jTextField6.setEditable(false);
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField5.setEditable(false);
+        TextField5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField6KeyTyped(evt);
+                TextField5KeyTyped(evt);
             }
         });
 
-        jTextField7.setEditable(false);
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField6.setEditable(false);
+        TextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField7KeyTyped(evt);
+                TextField6KeyTyped(evt);
             }
         });
 
-        jTextField8.setEditable(false);
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+        TextField7.setEditable(false);
+        TextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField8KeyTyped(evt);
+                TextField7KeyTyped(evt);
+            }
+        });
+
+        TextField8.setEditable(false);
+        TextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextField8KeyTyped(evt);
             }
         });
 
         showScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        correctAnswersLabel.setBackground(new java.awt.Color(204, 204, 204));
+        correctAnswersLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        correctAnswersLabel.setText("Correct Answer:");
+
+        showCorrectAnswer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout panelOfformingWordsLayout = new javax.swing.GroupLayout(panelOfformingWords);
         panelOfformingWords.setLayout(panelOfformingWordsLayout);
@@ -178,7 +187,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
             panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfformingWordsLayout.createSequentialGroup()
                 .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
@@ -186,28 +195,32 @@ public class formingWordsGUI extends javax.swing.JFrame {
                         .addComponent(scoreTitleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285))
+                        .addGap(29, 29, 29)
+                        .addComponent(correctAnswersLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(showCorrectAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160))
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                         .addComponent(showDisformingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(solutionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 98, Short.MAX_VALUE))
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(finishGame)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(panelOfformingWordsLayout.createSequentialGroup()
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,14 +247,14 @@ public class formingWordsGUI extends javax.swing.JFrame {
                         .addComponent(solutionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)))
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -252,9 +265,12 @@ public class formingWordsGUI extends javax.swing.JFrame {
                                 .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(showScore, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelOfformingWordsLayout.createSequentialGroup()
-                        .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelOfformingWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(scoreTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(correctAnswersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showCorrectAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(54, 54, 54)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,62 +311,92 @@ public class formingWordsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             JOptionPane.showMessageDialog(rootPane, "The word is: " + originalWord);
+            //the button solution put all with the original form
             showDisformingLabel.setText("");
             showDisform = op.disformArrayWord(op.words());
             originalWord = op.wordsOriginal(op.words());
             showDisform = op.disformArrayWord(op.words2(originalWord));
             showDisformingLabel.setText(showDisform);
-            Score = Score - 10;
-            showScore.setText(String.valueOf(Score));
+            Score = Score - 10;//by used the button solutions the score rest 10
+            showScore.setText(String.valueOf(Score));//show score
+            if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
     }//GEN-LAST:event_solutionsButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TextField1ActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void TextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField1KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
-            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-                evt.consume();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {//to validate the chart with only letters of alphabet
+                evt.consume();//this method is used to eliminate the other letters 
             }
-            if (band1 == false) {
-                String textOne = jTextField1.getText();
-                if (jTextField1.getText().length() == 1) {
+            if (band1 == false) {//for not introduced other letter if the answer is correct
+                String textOne = TextField1.getText();
+                if (TextField1.getText().length() == 1) {//if in the jtextfield the user put more than one letters the system eliminate the others 
                     evt.consume();
                 }
-                char firtChar = originalWord.charAt(0);
-                if (textOne.equalsIgnoreCase(String.valueOf(firtChar))) {
-                    jTextField1.setEditable(false);
-                    jTextField2.setEditable(true);
-                    answerUserGlobal += textOne;
+                char firtChar = originalWord.charAt(0);//assigns the chart of the letter that corresponds of the chart(position)
+                if (textOne.equalsIgnoreCase(String.valueOf(firtChar))) {//if the textOne is the same of firts char 
+                    TextField1.setEditable(false);//put the editable in false
+                    TextField2.setEditable(true);//put the editable on true that previously this value is false
+                    answerUserGlobal += textOne;//in the answerGlobal is concatenated
                     textOne = "";
-                    band1 = true;
+                    band1 = true;//change the value to true
+                } else if (!textOne.equalsIgnoreCase("")) {//if textOne is not the same of "" indicate that textOne is no empty
+                    TextField1.setText("");
+                    Score -= 1;//for each attempt,1 is subtraction at the score 
+                    showScore.setText(String.valueOf(Score));
                 }
-                if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
+                if (answerUserGlobal.equalsIgnoreCase(originalWord)) {//if the answerUserglobal is the same of originalWord is correct
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField1.addKeyListener(null);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField1.addKeyListener(null);//the keylistener is null 
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+               if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
-
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_TextField1KeyTyped
+    /*Important
+        
+    */
+    private void TextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField2KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -358,37 +404,53 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band2 == false) {
-                String textTwo = jTextField2.getText();
-                if (jTextField2.getText().length() == 1) {
+                String textTwo = TextField2.getText();
+                if (TextField2.getText().length() == 1) {
                     evt.consume();
                 }
                 char WordChar = originalWord.charAt(1);
                 if (textTwo.equalsIgnoreCase(String.valueOf(WordChar))) {
                     answerUserGlobal += textTwo;
-                    jTextField2.setEditable(false);
-                    jTextField3.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField3.setEditable(true);
                     textTwo = "";
                     band2 = true;
+                } else if (!textTwo.equalsIgnoreCase("")) {
+                    TextField2.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_TextField2KeyTyped
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void TextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField3KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -396,37 +458,53 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band3 == false) {
-                String textThree = jTextField3.getText();
-                if (jTextField3.getText().length() == 1) {
+                String textThree = TextField3.getText();
+                if (TextField3.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(2);
                 if (textThree.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textThree;
-                    jTextField3.setEditable(false);
-                    jTextField4.setEditable(true);
+                    TextField3.setEditable(false);
+                    TextField4.setEditable(true);
                     textThree = "";
                     band3 = true;
+                } else if (!textThree.equalsIgnoreCase("")) {
+                    TextField3.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField3KeyTyped
+    }//GEN-LAST:event_TextField3KeyTyped
 
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+    private void TextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField4KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -434,35 +512,39 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band4 == false) {
-                String textFour = jTextField4.getText();
-                if (jTextField4.getText().length() == 1) {
+                String textFour = TextField4.getText();
+                if (TextField4.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(3);
                 if (textFour.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textFour;
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(true);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(true);
                     textFour = "";
                     band4 = true;
+                } else if (!textFour.equalsIgnoreCase("")) {
+                    TextField4.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField2.setEditable(false);
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(false);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
                     showDisformingLabel.setText("");
                     showDisform = op.disformArrayWord(op.words());
                     originalWord = op.wordsOriginal(op.words());
@@ -477,14 +559,26 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     band6 = false;
                     band7 = false;
                     band8 = false;
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField4KeyTyped
+    }//GEN-LAST:event_TextField4KeyTyped
 
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+    private void TextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField5KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -492,35 +586,39 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band5 == false) {
-                String textFive = jTextField5.getText();
-                if (jTextField5.getText().length() == 1) {
+                String textFive = TextField5.getText();
+                if (TextField5.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(4);
                 if (textFive.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textFive;
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(true);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(true);
                     textFive = "";
                     band5 = true;
+                } else if (!textFive.equalsIgnoreCase("")) {
+                    TextField5.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField2.setEditable(false);
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(false);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
                     showDisformingLabel.setText("");
                     showDisform = op.disformArrayWord(op.words());
                     originalWord = op.wordsOriginal(op.words());
@@ -535,14 +633,26 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     band6 = false;
                     band7 = false;
                     band8 = false;
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField5KeyTyped
+    }//GEN-LAST:event_TextField5KeyTyped
 
-    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+    private void TextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField6KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -550,35 +660,39 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band6 == false) {
-                String textSix = jTextField6.getText();
-                if (jTextField6.getText().length() == 1) {
+                String textSix = TextField6.getText();
+                if (TextField6.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(5);
                 if (textSix.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textSix;
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(true);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(true);
                     textSix = "";
                     band6 = true;
+                } else if (!textSix.equalsIgnoreCase("")) {
+                    TextField6.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField2.setEditable(false);
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(false);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
                     showDisformingLabel.setText("");
                     showDisform = op.disformArrayWord(op.words());
                     originalWord = op.wordsOriginal(op.words());
@@ -593,14 +707,26 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     band6 = false;
                     band7 = false;
                     band8 = false;
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField6KeyTyped
+    }//GEN-LAST:event_TextField6KeyTyped
 
-    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+    private void TextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField7KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -608,36 +734,39 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band7 == false) {
-                String textSeven = jTextField7.getText();
-                if (jTextField7.getText().length() == 1) {
+                String textSeven = TextField7.getText();
+                if (TextField7.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(6);
                 if (textSeven.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textSeven;
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(true);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(true);
                     textSeven = "";
                     band7 = true;
-
+                } else if (!textSeven.equalsIgnoreCase("")) {
+                    TextField7.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField2.setEditable(false);
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(false);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
                     showDisformingLabel.setText("");
                     showDisform = op.disformArrayWord(op.words());
                     originalWord = op.wordsOriginal(op.words());
@@ -652,14 +781,26 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     band6 = false;
                     band7 = false;
                     band8 = false;
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField7KeyTyped
+    }//GEN-LAST:event_TextField7KeyTyped
 
-    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+    private void TextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField8KeyTyped
         // TODO add your handling code here:
         try {
             char c = evt.getKeyChar();
@@ -667,34 +808,38 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 evt.consume();
             }
             if (band8 == false) {
-                String textEight = jTextField8.getText();
-                if (jTextField8.getText().length() == 1) {
+                String textEight = TextField8.getText();
+                if (TextField8.getText().length() == 1) {
                     evt.consume();
                 }
                 char wordChar = originalWord.charAt(7);
                 if (textEight.equalsIgnoreCase(String.valueOf(wordChar))) {
                     answerUserGlobal += textEight;
-                    jTextField8.setEditable(false);
+                    TextField8.setEditable(false);
                     textEight = "";
                     band8 = true;
+                } else if (!textEight.equalsIgnoreCase("")) {
+                    TextField8.setText("");
+                    Score -= 1;
+                    showScore.setText(String.valueOf(Score));
                 }
                 if (answerUserGlobal.equalsIgnoreCase(originalWord)) {
                     JOptionPane.showMessageDialog(rootPane, "The entered word is correct");
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                    jTextField5.setText("");
-                    jTextField6.setText("");
-                    jTextField7.setText("");
-                    jTextField8.setText("");
-                    jTextField1.setEditable(true);
-                    jTextField2.setEditable(false);
-                    jTextField4.setEditable(false);
-                    jTextField5.setEditable(false);
-                    jTextField6.setEditable(false);
-                    jTextField7.setEditable(false);
-                    jTextField8.setEditable(false);
+                    TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
                     showDisformingLabel.setText("");
                     showDisform = op.disformArrayWord(op.words());
                     originalWord = op.wordsOriginal(op.words());
@@ -709,12 +854,24 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     band6 = false;
                     band7 = false;
                     band8 = false;
+                    correctAnswer++;
+                    showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
+                if (Score <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                        + "\n Correct Answer: " + correctAnswer);
+                setVisible(false);
+                this.dispose();//close 
+                mainGUI main = new mainGUI();//new instance for a new game
+                main.setTitle("Programming Project");
+                main.setVisible(true);
+                main.setLocationRelativeTo(null);
+            }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
-    }//GEN-LAST:event_jTextField8KeyTyped
+    }//GEN-LAST:event_TextField8KeyTyped
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
@@ -736,20 +893,22 @@ public class formingWordsGUI extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextField1;
+    private javax.swing.JTextField TextField2;
+    private javax.swing.JTextField TextField3;
+    private javax.swing.JTextField TextField4;
+    private javax.swing.JTextField TextField5;
+    private javax.swing.JTextField TextField6;
+    private javax.swing.JTextField TextField7;
+    private javax.swing.JTextField TextField8;
+    private javax.swing.JLabel correctAnswersLabel;
     private javax.swing.JButton finishGame;
     private javax.swing.JLabel formingTitleLabel;
     private javax.swing.JButton helpButton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JPanel panelOfformingWords;
     private javax.swing.JLabel scoreTitleLabel;
+    private javax.swing.JLabel showCorrectAnswer;
     public javax.swing.JLabel showDisformingLabel;
     private javax.swing.JLabel showScore;
     private javax.swing.JButton solutionsButton;

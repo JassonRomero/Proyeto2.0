@@ -129,27 +129,47 @@ public class sumNumberGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2_frame.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2_frame.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1_numRandom1.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel1_numRandom1.setText("¿?");
 
+        jLabel1_sum.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel1_sum.setText("+");
 
+        jLabel2_numRandom2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel2_numRandom2.setText(String.valueOf(arraysNumbers[1]));
 
+        jLabel3_equals.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel3_equals.setText("=");
 
+        jLabel1_result.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel1_result.setText(String.valueOf(arraysNumbers[2]));
 
+        correctAttempts_Label.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         correctAttempts_Label.setText("Successful sums:");
 
+        jLabel1_correctAttempts.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1_correctAttempts.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1_correctAttempts.setText(String.valueOf(correctAttempts));
+        jLabel1_correctAttempts.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        failedAttempts_Label.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         failedAttempts_Label.setText(" Unsuccessful sums:");
 
+        jLabel2_failedAttempts.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2_failedAttempts.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2_failedAttempts.setText(String.valueOf(failledAttempts));
+        jLabel2_failedAttempts.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        attempts_Label.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         attempts_Label.setText("Attempts:");
 
+        jLabel3_attempts.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3_attempts.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel3_attempts.setText(String.valueOf(numAttempts));
+        jLabel3_attempts.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         helpButton.setText("Help");
         helpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +185,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1_numberUser.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1_numberUser.setText(" Enter the missing number in the equation");
 
         jTextField1_numberUser.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +213,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel_sumNumero.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
         jLabel_sumNumero.setText("Adding Numbers");
 
         javax.swing.GroupLayout jPanel2_frameLayout = new javax.swing.GroupLayout(jPanel2_frame);
@@ -202,47 +224,50 @@ public class sumNumberGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                        .addComponent(correctAttempts_Label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1_correctAttempts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2_frameLayout.createSequentialGroup()
                         .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2_frameLayout.createSequentialGroup()
                                 .addComponent(helpButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(finishGameButton))
                             .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel1_numRandom1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1_sum)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2_numRandom2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel3_equals)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1_result, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
-                                .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                                        .addComponent(jTextField1_numberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1_compare))
-                                    .addComponent(jLabel1_numberUser)))
-                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                                .addComponent(attempts_Label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3_attempts)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1_numberUser)
+                                .addGap(62, 62, 62))
                             .addGroup(jPanel2_frameLayout.createSequentialGroup()
                                 .addComponent(jLabel_sumNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(againButton)))
+                                .addComponent(againButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2_frameLayout.createSequentialGroup()
+                                .addGap(0, 43, Short.MAX_VALUE)
+                                .addComponent(jLabel1_numRandom1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1_sum)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel2_numRandom2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3_equals)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1_result, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(138, 138, 138)
+                                .addComponent(jTextField1_numberUser, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1_compare)
+                                .addGap(92, 92, 92)))
                         .addContainerGap())
                     .addGroup(jPanel2_frameLayout.createSequentialGroup()
-                        .addComponent(failedAttempts_Label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2_failedAttempts)
+                        .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
+                                .addComponent(attempts_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3_attempts))
+                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
+                                .addComponent(failedAttempts_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel2_failedAttempts))
+                            .addGroup(jPanel2_frameLayout.createSequentialGroup()
+                                .addComponent(correctAttempts_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1_correctAttempts)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2_frameLayout.setVerticalGroup(
@@ -252,23 +277,22 @@ public class sumNumberGUI extends javax.swing.JFrame {
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_sumNumero)
                     .addComponent(againButton))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1_numRandom1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2_numRandom2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1_sum)
-                    .addComponent(jLabel1_result)
-                    .addComponent(jLabel1_numberUser)
-                    .addComponent(jLabel3_equals))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1_numberUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1_numberUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_compare))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton1_compare)
+                    .addComponent(jLabel1_result)
+                    .addComponent(jLabel3_equals)
+                    .addComponent(jLabel2_numRandom2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1_sum)
+                    .addComponent(jLabel1_numRandom1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correctAttempts_Label)
                     .addComponent(jLabel1_correctAttempts))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(failedAttempts_Label)
                     .addComponent(jLabel2_failedAttempts))
@@ -276,7 +300,7 @@ public class sumNumberGUI extends javax.swing.JFrame {
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(attempts_Label)
                     .addComponent(jLabel3_attempts))
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(helpButton)
                     .addComponent(finishGameButton))
@@ -287,15 +311,14 @@ public class sumNumberGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2_frame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2_frame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel2_frame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

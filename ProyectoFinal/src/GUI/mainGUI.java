@@ -78,7 +78,7 @@ public class mainGUI extends javax.swing.JFrame {
         enterGameButton.setBackground(new java.awt.Color(255, 255, 255));
         enterGameButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         enterGameButton.setText("Enter");
-        enterGameButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        enterGameButton.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(204, 204, 204)));
         enterGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterGameButtonActionPerformed(evt);
@@ -137,7 +137,7 @@ public class mainGUI extends javax.swing.JFrame {
         sumNumbers.setBackground(new java.awt.Color(255, 255, 255));
         sumNumbers.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         sumNumbers.setText("Adding Numbers");
-        sumNumbers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sumNumbers.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         sumNumbers.setEnabled(false);
         sumNumbers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class mainGUI extends javax.swing.JFrame {
         formingWords.setBackground(new java.awt.Color(255, 255, 255));
         formingWords.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         formingWords.setText("Forming Words");
-        formingWords.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        formingWords.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         formingWords.setEnabled(false);
         formingWords.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

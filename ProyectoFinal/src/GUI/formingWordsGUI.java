@@ -394,7 +394,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TextField1KeyTyped
     /*Important
-        
+        textfield1,textfield2 and textfield3 is the same but with others names of variables 
     */
     private void TextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField2KeyTyped
         // TODO add your handling code here:
@@ -503,7 +503,9 @@ public class formingWordsGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
     }//GEN-LAST:event_TextField3KeyTyped
-
+/*Important
+        textfield4,textfield5,textfield6,textfield7 and textfield8 is the same but with others names of variables 
+    */
     private void TextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField4KeyTyped
         // TODO add your handling code here:
         try {
@@ -551,6 +553,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showDisform = op.disformArrayWord(op.words2(originalWord));
                     showDisformingLabel.setText(showDisform);
                     answerUserGlobal = "";
+                    //return all band to false
                     band1 = false;
                     band2 = false;
                     band3 = false;

@@ -14,14 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class operationFormingWords implements operation {
 
-    public String[] arrayWords = {"cath","while","computer","keyword","program","java","compiler",
-        "netbeans","eclipse","mouse","bugs","projects","github"};//arrays with Strings
+    public String[] arrayWords = {"cath", "while", "computer", "keyword", "program", "java", "compiler", "pseint",
+        "netbeans", "eclipse", "mouse", "bugs", "projects", "github", "string", "keyboard", "master", "circuit",
+        "public", "branch", "private", "debug", "linux", "arrays", "boolean", "abstract", "commit", "random", "class",
+        "push", "pull", "data", "file", "override", "return", "void", "package", "access", "digital", "switch", "else",
+        "double", "jlabel", "password", "jframe", "network", "intel", "nvidia", "main", "console"};//arrays with Strings
     char[] arrayOfWord;//define global arrays of char  
     public int temPosition;//a position global use for the positionRandom()
 
     @Override
     public int positionRandom() {
-        int random = ((int) (Math.random() * arrayWords.length-1)+1);//define a random number with lengt more one for not getout the number zero
+        int random = ((int) (Math.random() * arrayWords.length - 1) + 1);//define a random number with lengt more one for not getout the number zero
         return random;
     }
 

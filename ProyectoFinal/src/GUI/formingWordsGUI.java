@@ -96,6 +96,11 @@ public class formingWordsGUI extends javax.swing.JFrame {
 
         helpButton.setText("Help");
         helpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
 
         formingTitleLabel.setBackground(new java.awt.Color(204, 204, 204));
         formingTitleLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
@@ -289,7 +294,16 @@ public class formingWordsGUI extends javax.swing.JFrame {
 /**/
     private void finishGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishGameActionPerformed
         // TODO add your handling code here:
-
+        try {
+            setVisible(false);
+            this.dispose();//close 
+            mainGUI main = new mainGUI();//new instance for a new game
+            main.setTitle("Programming Project");
+            main.setVisible(true);
+            main.setLocationRelativeTo(null);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
 
     }//GEN-LAST:event_finishGameActionPerformed
 
@@ -858,6 +872,21 @@ public class formingWordsGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
     }//GEN-LAST:event_TextField8KeyTyped
+
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+             JOptionPane.showMessageDialog(null, "1. All the words shown are referring to computer science"
+                    + "\n"
+                    + "2. Analyze well each letter that will enter to avoid losing points"
+                    + "\n"
+                    + "3. Consider if losing 10 points to change the word is better than trying to get the word right"
+                    + "\n"
+                    + "If you want to exit the game press the \"end game\" button");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error has occured!");
+        }
+    }//GEN-LAST:event_helpButtonActionPerformed
 
     /**
      * @param args the command line arguments

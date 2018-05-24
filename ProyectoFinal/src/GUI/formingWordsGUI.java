@@ -316,13 +316,38 @@ public class formingWordsGUI extends javax.swing.JFrame {
         try {
             JOptionPane.showMessageDialog(rootPane, "The word is: " + originalWord);
             //the button solution put all with the original form
-            showDisformingLabel.setText("");
-            showDisform = op.disformArrayWord(op.words());
-            originalWord = op.wordsOriginal(op.words());
-            showDisform = op.disformArrayWord(op.words2(originalWord));
-            showDisformingLabel.setText(showDisform);
+              TextField1.setText("");
+                    TextField2.setText("");
+                    TextField3.setText("");
+                    TextField4.setText("");
+                    TextField5.setText("");
+                    TextField6.setText("");
+                    TextField7.setText("");
+                    TextField8.setText("");
+                    TextField1.setEditable(true);
+                    TextField2.setEditable(false);
+                    TextField3.setEditable(false);
+                    TextField4.setEditable(false);
+                    TextField5.setEditable(false);
+                    TextField6.setEditable(false);
+                    TextField7.setEditable(false);
+                    TextField8.setEditable(false);
+                    showDisformingLabel.setText("");
+                    showDisform = op.disformArrayWord(op.words());
+                    originalWord = op.wordsOriginal(op.words());
+                    showDisform = op.disformArrayWord(op.words2(originalWord));
+                    showDisformingLabel.setText(showDisform);
+                    answerUserGlobal = "";
+                    band1 = false;
+                    band2 = false;
+                    band3 = false;
+                    band4 = false;
+                    band5 = false;
+                    band6 = false;
+                    band7 = false;
+                    band8 = false;
             Score = Score - 10;//by used the button solutions the score rest 10
-            showScore.setText(String.valueOf(Score));//show score
+           showScore.setText(String.valueOf(Score));//show score
             if (Score <= 0) {
                 JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
                         + "\n Correct Answer: " + correctAnswer);
@@ -334,7 +359,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                 main.setLocationRelativeTo(null);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An error has occured!");
+            JOptionPane.showMessageDialog(null, "An error has occured! " + e);
         }
     }//GEN-LAST:event_solutionsButtonActionPerformed
 
@@ -381,16 +406,16 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     correctAnswer++;
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
-               if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                if (Score <= 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
 
             }
         } catch (Exception e) {
@@ -399,7 +424,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_TextField1KeyTyped
     /*Important
         textfield1,textfield2 and textfield3 is the same but with others names of variables 
-    */
+     */
     private void TextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField2KeyTyped
         // TODO add your handling code here:
         try {
@@ -439,15 +464,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -493,23 +518,23 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
         }
     }//GEN-LAST:event_TextField3KeyTyped
-/*Important
+    /*Important
         textfield4,textfield5,textfield6,textfield7 and textfield8 is the same but with others names of variables 
-    */
+     */
     private void TextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField4KeyTyped
         // TODO add your handling code here:
         try {
@@ -546,6 +571,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     TextField8.setText("");
                     TextField1.setEditable(true);
                     TextField2.setEditable(false);
+                    TextField3.setEditable(false);
                     TextField4.setEditable(false);
                     TextField5.setEditable(false);
                     TextField6.setEditable(false);
@@ -570,15 +596,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -621,6 +647,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     TextField8.setText("");
                     TextField1.setEditable(true);
                     TextField2.setEditable(false);
+                    TextField3.setEditable(false);
                     TextField4.setEditable(false);
                     TextField5.setEditable(false);
                     TextField6.setEditable(false);
@@ -644,15 +671,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -695,6 +722,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     TextField8.setText("");
                     TextField1.setEditable(true);
                     TextField2.setEditable(false);
+                    TextField3.setEditable(false);
                     TextField4.setEditable(false);
                     TextField5.setEditable(false);
                     TextField6.setEditable(false);
@@ -718,15 +746,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -770,6 +798,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     TextField1.setEditable(true);
                     TextField2.setEditable(false);
                     TextField4.setEditable(false);
+                    TextField3.setEditable(false);
                     TextField5.setEditable(false);
                     TextField6.setEditable(false);
                     TextField7.setEditable(false);
@@ -792,15 +821,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -842,6 +871,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     TextField8.setText("");
                     TextField1.setEditable(true);
                     TextField2.setEditable(false);
+                    TextField3.setEditable(false);
                     TextField4.setEditable(false);
                     TextField5.setEditable(false);
                     TextField6.setEditable(false);
@@ -865,15 +895,15 @@ public class formingWordsGUI extends javax.swing.JFrame {
                     showCorrectAnswer.setText(String.valueOf(correctAnswer));
                 }
                 if (Score <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
-                        + "\n Correct Answer: " + correctAnswer);
-                setVisible(false);
-                this.dispose();//close 
-                mainGUI main = new mainGUI();//new instance for a new game
-                main.setTitle("Programming Project");
-                main.setVisible(true);
-                main.setLocationRelativeTo(null);
-            }
+                    JOptionPane.showMessageDialog(rootPane, "Sorry but you do not have more points to continue playing"
+                            + "\n Correct Answer: " + correctAnswer);
+                    setVisible(false);
+                    this.dispose();//close 
+                    mainGUI main = new mainGUI();//new instance for a new game
+                    main.setTitle("Programming Project");
+                    main.setVisible(true);
+                    main.setLocationRelativeTo(null);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error has occured!");
@@ -883,7 +913,7 @@ public class formingWordsGUI extends javax.swing.JFrame {
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
         try {
-             JOptionPane.showMessageDialog(null, "1. All the words shown are referring to computer science"
+            JOptionPane.showMessageDialog(null, "1. All the words shown are referring to computer science"
                     + "\n"
                     + "2. Analyze well each letter that will enter to avoid losing points"
                     + "\n"
